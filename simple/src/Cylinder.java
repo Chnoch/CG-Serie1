@@ -10,7 +10,7 @@ import java.util.TimerTask;
  * Implements a simple application that opens a 3D rendering window and 
  * shows a rotating cube.
  */
-public class simple
+public class Cylinder
 {	
 	static RenderPanel renderPanel;
 	static RenderContext renderContext;
@@ -37,10 +37,10 @@ public class simple
 			// Register a timer task
 		    Timer timer = new Timer();
 		    angle = 0.01f;
-//		    timer.scheduleAtFixedRate(new AnimationTask(), 0, 10);
+		    timer.scheduleAtFixedRate(new AnimationTask(), 0, 10);
 		}
 	}
-/*
+
 	/**
 	 * A timer task that generates an animation. This task triggers
 	 * the redrawing of the 3D scene every time it is executed.
@@ -77,53 +77,6 @@ public class simple
     	public void mouseClicked(MouseEvent e) {}
 	}
 	
-	
-	
-	
-	
-	private static float x[], c[];
-	private static int indices[];
-	
-	public static void makeCylinder(int resolution) {
-	    int angle = 360 / resolution;
-	    x = new float[9*resolution];
-	    x[0]=0;
-	    x[1]=0;
-	    x[2]=0;
-	    int a=2;
-	    for (int i=0; i<3*resolution-3; i++) {
-	        x[++a]= (float) Math.cos(i*angle);
-	        x[++a]= (float) Math.sin(i*angle);
-            x[++a]=0;
-	    }
-	    
-	    c = new float[9*resolution];
-	    a=-1;
-	    for (int i=0;i<resolution;i++) {
-	        c[++a]=1;
-	        c[++a]=1;
-	        c[++a]=1;
-	        
-	        c[++a]=1;
-	        c[++a]=1;
-	        c[++a]=1;
-	        
-	        c[++a]=1;
-	        c[++a]=1;
-	        c[++a]=1;
-	    }
-	    
-	    indices = new int[3*resolution];
-	    a=-1;
-	    for (int i=0;i<resolution;i++){
-	        indices[++a]=0;
-	        indices[++a]=(i+1);
-	        indices[++a]=(i+2);
-	    }
-	    //correction to combine with first index;
-	    indices[a]=1;
-	}
-	
 	/**
 	 * The main function opens a 3D rendering window, constructs a simple 3D
 	 * scene, and starts a timer task to generate an animation.
@@ -140,29 +93,30 @@ public class simple
 					 1,1,1, 1,1,-1, -1,1,-1, -1,1,1,		// top face
 					-1,-1,1, -1,-1,-1, 1,-1,-1, 1,-1,1};	// bottom face
 		
+		
+
 		// The vertex colors
-		/*float c[] = {1,0,0, 1,0,0, 1,0,0, 1,0,0,
+		float c[] = {1,0,0, 1,0,0, 1,0,0, 1,0,0,
 				     0,1,0, 0,1,0, 0,1,0, 0,1,0,
 					 1,0,0, 1,0,0, 1,0,0, 1,0,0,
 					 0,1,0, 0,1,0, 0,1,0, 0,1,0,
 					 0,0,1, 0,0,1, 0,0,1, 0,0,1,
 					 0,0,1, 0,0,1, 0,0,1, 0,0,1};
-*/
-		makeCylinder(6);
+
 		// Construct a data structure that stores the vertices, their
 		// attributes, and the triangle mesh connectivity
-		VertexData vertexData = new VertexData(x.length);
+		VertexData vertexData = new VertexData(24);
 		vertexData.addElement(c, VertexData.Semantic.COLOR, 3);
-		vertexData.addElement(x, VertexData.Semantic.POSITION, 3);
+		vertexData.addElement(v, VertexData.Semantic.POSITION, 3);
 		
 		// The triangles (three vertex indices for each triangle)
-		/*int indices[] = {0,2,3, 0,1,2,			// front face
+		int indices[] = {0,2,3, 0,1,2,			// front face
 						 4,6,7, 4,5,6,			// left face
 						 8,10,11, 8,9,10,		// back face
 						 12,14,15, 12,13,14,	// right face
 						 16,18,19, 16,17,18,	// top face
 						 20,22,23, 20,21,22};	// bottom face
-*/
+
 		vertexData.addIndices(indices);
 				
 		// Make a scene manager and add the object
@@ -175,7 +129,7 @@ public class simple
 		renderPanel = new SimpleRenderPanel();
 		
 		// Make the main window of this application and add the renderer to it
-		JFrame jframe = new JFrame("Cylinder");
+		JFrame jframe = new JFrame("simple");
 		jframe.setSize(500, 500);
 		jframe.setLocationRelativeTo(null); // center of screen
 		jframe.getContentPane().add(renderPanel.getCanvas());// put the canvas into a JFrame window
