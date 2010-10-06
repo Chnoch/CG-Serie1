@@ -35,7 +35,7 @@ public class simple {
             // Register a timer task
             Timer timer = new Timer();
             angle = 0.01f;
-            // timer.scheduleAtFixedRate(new AnimationTask(), 0, 10);
+             timer.scheduleAtFixedRate(new AnimationTask(), 0, 10);
         }
     }
 
@@ -86,29 +86,26 @@ public class simple {
     private static int indices[];
 
     public static void makeCylinder(int resolution) {
-        int angle = 360 / resolution;
-        x = new float[2* 9 * resolution];
-        x[0] = 0;
-        x[1] = 0;
-        x[2] = 1;
-        int a = 2;
-        for (int i = 0; i < 3 * resolution - 3; i++) {
+        double angle = (Math.PI*2)/resolution;
+        x = new float[2* 3 * resolution];
+        // top
+        int a = -1;
+        for (int i = 0; i < resolution; i++) {
             x[++a] = (float) Math.cos(i * angle);
             x[++a] = (float) Math.sin(i * angle);
             x[++a] = 1;
         }
         
-        x[++a]=0;
-        x[++a]=0;
-        x[++a]=-1;
-        
-        for (int i = 0; i < 3 * resolution - 3; i++) {
+        //bottom
+        for (int i = 0; i < resolution; i++) {
             x[++a] = (float) Math.cos(i * angle);
             x[++a] = (float) Math.sin(i * angle);
             x[++a] = -1;
         }
 
-        c = new float[2* 9 * resolution];
+        
+        //colors
+        c = new float[2* 3 * resolution];
         a = -1;
         for (int i = 0; i < resolution; i++) {
             c[++a] = 1;
@@ -120,46 +117,51 @@ public class simple {
             c[++a] = 0;
         }
 
-        //2*3*resolution (top and bottom) + 6*resolution (sides)
-        indices = new int[12*resolution];
+        //2*3*(resolution-2) (top and bottom) + 6*resolution (sides)
+        indices = new int[12*resolution-12];
         a = -1;
+        
         // top
-        for (int i = 0; i < resolution; i++) {
+        for (int i = 0; i < resolution-2; i++) {
             indices[++a] = 0;
             indices[++a] = (i + 1);
             indices[++a] = (i + 2);
         }
         
-        indices[a]=1;
-        
         // bottom
-        for (int i = resolution+1; i < 2*resolution+1; i++) {
-            indices[++a] = resolution+1;
-            indices[++a] = (i + 1);
+        for (int i = resolution; i < 2*resolution-2; i++) {
+            indices[++a] = resolution;
             indices[++a] = (i + 2);
+            indices[++a] = (i + 1);
         }
-        indices[a]=resolution+2;
         
+        //sides
         for (int i = 0; i < resolution-1;i++) {
-            indices[++a] = i+1;
-            indices[++a] = resolution+ i+1 +1;
-            indices[++a] = resolution+ i+1 +2;
+            indices[++a] = i;
+            indices[++a] = resolution+ i;
+            indices[++a] = resolution+ i+1;
             
-            indices[++a] = i+2;
-            indices[++a] = resolution+ i+1 +1;
-            indices[++a] = resolution+ i+1 +2;
+            indices[++a] = i;
+            indices[++a] = resolution+ i+1;
+            indices[++a] = (i+1)%resolution;
             
         }
+        // correction for last side
+        indices[++a] = resolution - 1;
+        indices[++a] = 2*resolution - 1;
         indices[++a] = resolution;
-        indices[++a] = 2*resolution+1;
-        indices[++a] = resolution+2;
         
-        indices[++a] = 1;
-        indices[++a] = 2*resolution+1;
-        indices[++a] = resolution+2;
+        indices[++a] = resolution -1;
+        indices[++a] = resolution;
+        indices[++a] = 0;
         
-        
-        // correction to combine with first index;
+//        indices[++a] = resolution;
+//        indices[++a] = 2*resolution-1;
+//        indices[++a] = resolution+2;
+//        
+//        indices[++a] = 1;
+//        indices[++a] = 2*resolution+1;
+//        indices[++a] = resolution+2;
     }
 
     /**
@@ -188,7 +190,7 @@ public class simple {
         makeCylinder(4);
         // Construct a data structure that stores the vertices, their
         // attributes, and the triangle mesh connectivity
-        VertexData vertexData = new VertexData(x.length);
+        VertexData vertexData = new VertexData(x.length/3);
         vertexData.addElement(x, VertexData.Semantic.POSITION, 3);
         vertexData.addElement(c, VertexData.Semantic.COLOR, 3);
 
