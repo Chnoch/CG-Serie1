@@ -14,7 +14,7 @@ public class simple {
     static RenderPanel renderPanel;
     static RenderContext renderContext;
     static SimpleSceneManager sceneManager;
-    static Shape shape,shape2;
+    static Shape shape,shape2,shape3;
     static float angle;
 
 
@@ -53,18 +53,38 @@ public class simple {
             rotX.rotX(angle);
             Matrix4f rotY = new Matrix4f();
             rotY.rotY(angle);
-            t.mul(rotX);
+//            t.mul(rotX);
             t.mul(rotY);
             shape.setTransformation(t);
             
             Matrix4f t2 =  shape2.getTransformation();
-            Matrix4f rotZ = new Matrix4f();
-            rotZ.rotZ(angle);
-            rotZ.mul(t2);
-            t2.mul(rotX);
-            t2.mul(rotY);
-            shape2.setTransformation(rotZ);
-//            shape2.setTransformation(t);
+            Matrix4f rotY2 = new Matrix4f();
+            Matrix4f rotX2 = new Matrix4f();
+            Matrix4f rotZ2 = new Matrix4f();
+            rotX2.rotX(angle);
+            rotY2.rotY(angle);
+            rotZ2.rotZ(angle);
+//            t2.mul(rotX2);
+//            t2.mul(rotY2);
+            rotY2.mul(t2);
+            rotY2.mul(rotX2);
+//            t2.mul(rotZ2);
+            shape2.setTransformation(rotY2);
+            
+            Matrix4f t3 =  shape3.getTransformation();
+            Matrix4f rotY3 = new Matrix4f();
+            Matrix4f rotX3 = new Matrix4f();
+            Matrix4f rotZ3 = new Matrix4f();
+            rotX3.rotX(angle);
+            rotY3.rotY(angle);
+            rotZ3.rotZ(angle);
+//            t3.mul(rotX3);
+            rotY3.mul(t3);
+//            t3.mul(rotZ3);
+            rotY3.mul(rotX3);
+//            rotX3.mul(t3);
+//            rotZ3.mul(t3);
+            shape3.setTransformation(rotY3);
 
             // Trigger redrawing of the render window
             renderPanel.getCanvas().repaint();
@@ -92,7 +112,7 @@ public class simple {
         }
     }
 
-    public static Shape makeCylinder(int resolution, int translation) {
+    public static Shape makeCylinder(int resolution, float x, float y, float z, float scale) {
         float cylinder[], c[];
         int indices[];
         double angle = (Math.PI * 2) / resolution;
@@ -100,16 +120,16 @@ public class simple {
         // top
         int a = -1;
         for (int i = 0; i < resolution; i++) {
-            cylinder[++a] = (float) Math.cos(i * angle)+translation;
-            cylinder[++a] = (float) Math.sin(i * angle);
-            cylinder[++a] = 1;
+            cylinder[++a] = scale*(float) Math.cos(i * angle)+x;
+            cylinder[++a] = scale*(float) Math.sin(i * angle)+y;
+            cylinder[++a] = scale+z;
         }
 
         // bottom
         for (int i = 0; i < resolution; i++) {
-            cylinder[++a] = (float) Math.cos(i * angle)+translation;
-            cylinder[++a] = (float) Math.sin(i * angle);
-            cylinder[++a] = -1;
+            cylinder[++a] = scale*(float) Math.cos(i * angle)+x;
+            cylinder[++a] = scale*(float) Math.sin(i * angle)+y;
+            cylinder[++a] = -1*scale+z;
         }
 
         // colors
@@ -276,16 +296,19 @@ public class simple {
      */
     public static void main(String[] args) {
 
-        Shape cylinder = makeCylinder(4,0);
-        Shape cylinder2 = makeCylinder(10,2);
+        Shape leftWheel= makeCylinder(10, 1.5f,0,0, 0.5f);
+        Shape rightWheel = makeCylinder(10, 4.5f,0,0, 0.5f);
+        Shape mainCylinder = makeCylinder(4, 3,0,0, 1f);
         Shape ball = makeBall(4);
 
-        shape = cylinder;
-        shape2 = cylinder2;
+        shape = mainCylinder;
+        shape2 = leftWheel;
+        shape3 = rightWheel;
         // Make a scene manager and add the object
         sceneManager = new SimpleSceneManager();
         sceneManager.addShape(shape);
-        sceneManager.addShape(cylinder2);
+        sceneManager.addShape(shape2);
+        sceneManager.addShape(shape3);
 
         // Make a render panel. The init function of the renderPanel
         // (see above) will be called back for initialization.
