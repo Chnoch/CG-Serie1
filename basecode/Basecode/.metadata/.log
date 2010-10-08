@@ -1,0 +1,182 @@
+!SESSION 2009-06-10 21:37:54.493 -----------------------------------------------
+eclipse.buildId=M20090211-1700
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_CH
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.filesystem 1 1 2009-06-10 21:38:31.090
+!MESSAGE Could not load library: localfile_1_0_0.dll.  This library provides platform-specific optimizations for certain file system operations.  This library is not present on all platforms, so this may not be an error.  The resources plug-in will safely fall back to using java.io.File functionality.
+!STACK 0
+java.lang.UnsatisfiedLinkError: no localfile_1_0_0 in java.library.path
+	at java.lang.ClassLoader.loadLibrary(Unknown Source)
+	at java.lang.Runtime.loadLibrary0(Unknown Source)
+	at java.lang.System.loadLibrary(Unknown Source)
+	at org.eclipse.core.internal.filesystem.local.LocalFileNatives.<clinit>(LocalFileNatives.java:32)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.fetchInfo(LocalFile.java:141)
+	at org.eclipse.core.filesystem.provider.FileStore.fetchInfo(FileStore.java:277)
+	at org.eclipse.jdt.ui.wizards.NewJavaProjectWizardPageTwo.hasExistingContent(NewJavaProjectWizardPageTwo.java:149)
+	at org.eclipse.jdt.ui.wizards.NewJavaProjectWizardPageTwo.updateProject(NewJavaProjectWizardPageTwo.java:217)
+	at org.eclipse.jdt.ui.wizards.NewJavaProjectWizardPageTwo.performFinish(NewJavaProjectWizardPageTwo.java:467)
+	at org.eclipse.jdt.internal.ui.wizards.JavaProjectWizard.finishPage(JavaProjectWizard.java:80)
+	at org.eclipse.jdt.internal.ui.wizards.NewElementWizard$2.run(NewElementWizard.java:117)
+	at org.eclipse.jdt.internal.core.BatchOperation.executeOperation(BatchOperation.java:39)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:716)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:1800)
+	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:4563)
+	at org.eclipse.jdt.internal.ui.actions.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:92)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SESSION 2009-06-10 21:49:00.796 -----------------------------------------------
+eclipse.buildId=M20090211-1700
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_CH
+Command-line arguments:  -data C:\Users\Matthias\Documents\Projects\Java\Computergrafik 2009\Basecode -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.filesystem 1 1 2009-06-10 21:49:01.779
+!MESSAGE Could not load library: localfile_1_0_0.dll.  This library provides platform-specific optimizations for certain file system operations.  This library is not present on all platforms, so this may not be an error.  The resources plug-in will safely fall back to using java.io.File functionality.
+!STACK 0
+java.lang.UnsatisfiedLinkError: no localfile_1_0_0 in java.library.path
+	at java.lang.ClassLoader.loadLibrary(Unknown Source)
+	at java.lang.Runtime.loadLibrary0(Unknown Source)
+	at java.lang.System.loadLibrary(Unknown Source)
+	at org.eclipse.core.internal.filesystem.local.LocalFileNatives.<clinit>(LocalFileNatives.java:32)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.fetchInfo(LocalFile.java:141)
+	at org.eclipse.core.filesystem.provider.FileStore.fetchInfo(FileStore.java:277)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:708)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:797)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:777)
+	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:663)
+	at org.eclipse.core.internal.resources.SaveManager.startup(SaveManager.java:1326)
+	at org.eclipse.core.internal.resources.Workspace.startup(Workspace.java:1953)
+	at org.eclipse.core.internal.resources.Workspace.open(Workspace.java:1716)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:376)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:1009)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:1003)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:984)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:346)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:265)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:400)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:111)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:427)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:193)
+	at org.eclipse.osgi.framework.internal.core.BundleLoader.findLocalClass(BundleLoader.java:370)
+	at org.eclipse.osgi.framework.internal.core.SingleSourcePackage.loadClass(SingleSourcePackage.java:33)
+	at org.eclipse.osgi.framework.internal.core.BundleLoader.findClassInternal(BundleLoader.java:443)
+	at org.eclipse.osgi.framework.internal.core.BundleLoader.findClass(BundleLoader.java:399)
+	at org.eclipse.osgi.framework.internal.core.BundleLoader.findClass(BundleLoader.java:387)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:87)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClassInternal(Unknown Source)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:114)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1212)
+!SESSION 2009-06-10 23:19:07.586 -----------------------------------------------
+eclipse.buildId=M20090211-1700
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=de_CH
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.filesystem 1 1 2009-06-10 23:19:15.963
+!MESSAGE Could not load library: localfile_1_0_0.dll.  This library provides platform-specific optimizations for certain file system operations.  This library is not present on all platforms, so this may not be an error.  The resources plug-in will safely fall back to using java.io.File functionality.
+!STACK 0
+java.lang.UnsatisfiedLinkError: no localfile_1_0_0 in java.library.path
+	at java.lang.ClassLoader.loadLibrary(Unknown Source)
+	at java.lang.Runtime.loadLibrary0(Unknown Source)
+	at java.lang.System.loadLibrary(Unknown Source)
+	at org.eclipse.core.internal.filesystem.local.LocalFileNatives.<clinit>(LocalFileNatives.java:32)
+	at org.eclipse.core.internal.filesystem.local.LocalFile.fetchInfo(LocalFile.java:141)
+	at org.eclipse.core.filesystem.provider.FileStore.fetchInfo(FileStore.java:277)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:708)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:797)
+	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:777)
+	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:663)
+	at org.eclipse.core.internal.resources.SaveManager.startup(SaveManager.java:1326)
+	at org.eclipse.core.internal.resources.Workspace.startup(Workspace.java:1953)
+	at org.eclipse.core.internal.resources.Workspace.open(Workspace.java:1716)
+	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:376)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:1009)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.startActivator(BundleContextImpl.java:1003)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.start(BundleContextImpl.java:984)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:346)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:265)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:400)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:111)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:427)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:193)
+	at org.eclipse.osgi.framework.internal.core.BundleLoader.findLocalClass(BundleLoader.java:370)
+	at org.eclipse.osgi.framework.internal.core.SingleSourcePackage.loadClass(SingleSourcePackage.java:33)
+	at org.eclipse.osgi.framework.internal.core.BundleLoader.findClassInternal(BundleLoader.java:443)
+	at org.eclipse.osgi.framework.internal.core.BundleLoader.findClass(BundleLoader.java:399)
+	at org.eclipse.osgi.framework.internal.core.BundleLoader.findClass(BundleLoader.java:387)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:87)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.lang.ClassLoader.loadClassInternal(Unknown Source)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:114)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:193)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:110)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:79)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:386)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:179)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:549)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:504)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1236)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1212)
+
+!ENTRY org.eclipse.team.cvs.ui 4 0 2009-06-10 23:20:24.416
+!MESSAGE Internal error
+!STACK 1
+org.eclipse.team.internal.ccvs.core.connection.CVSServerException: The server reported an error while performing the "cvs checkout" command.
+	at org.eclipse.team.internal.ccvs.core.client.Checkout.getRemoteModules(Checkout.java:174)
+	at org.eclipse.team.internal.ccvs.core.resources.RemoteModule.getRemoteModules(RemoteModule.java:44)
+	at org.eclipse.team.internal.ccvs.core.connection.CVSRepositoryLocation.members(CVSRepositoryLocation.java:657)
+	at org.eclipse.team.internal.ccvs.ui.repo.RepositoryRoot.getDefinedModulesCache(RepositoryRoot.java:131)
+	at org.eclipse.team.internal.ccvs.ui.repo.RepositoryRoot.getDefinedModules(RepositoryRoot.java:151)
+	at org.eclipse.team.internal.ccvs.ui.operations.FetchMembersOperation.execute(FetchMembersOperation.java:112)
+	at org.eclipse.team.internal.ccvs.ui.operations.CVSOperation.run(CVSOperation.java:81)
+	at org.eclipse.team.internal.ccvs.ui.model.RemoteFolderElement.fetchDeferredChildren(RemoteFolderElement.java:72)
+	at org.eclipse.ui.progress.DeferredTreeContentManager$1.run(DeferredTreeContentManager.java:234)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Contains: : cvs [checkout aborted]: failed to open the modules file
+!SUBENTRY 1 org.eclipse.team.cvs.core 4 -10 2009-06-10 23:20:24.416
+!MESSAGE The server reported an error while performing the "cvs checkout" command.
+!SUBENTRY 2 org.eclipse.team.cvs.core 4 -14 2009-06-10 23:20:24.416
+!MESSAGE : cvs [checkout aborted]: failed to open the modules file
+
+!ENTRY org.eclipse.team.cvs.ui 4 0 2009-06-10 23:20:49.012
+!MESSAGE Internal error
+!STACK 1
+org.eclipse.team.internal.ccvs.core.connection.CVSServerException: The server reported an error while performing the "cvs checkout" command.
+	at org.eclipse.team.internal.ccvs.core.client.Checkout.getRemoteModules(Checkout.java:174)
+	at org.eclipse.team.internal.ccvs.core.resources.RemoteModule.getRemoteModules(RemoteModule.java:44)
+	at org.eclipse.team.internal.ccvs.core.connection.CVSRepositoryLocation.members(CVSRepositoryLocation.java:657)
+	at org.eclipse.team.internal.ccvs.ui.repo.RepositoryRoot.getDefinedModulesCache(RepositoryRoot.java:131)
+	at org.eclipse.team.internal.ccvs.ui.repo.RepositoryRoot.getDefinedModules(RepositoryRoot.java:151)
+	at org.eclipse.team.internal.ccvs.ui.operations.FetchMembersOperation.execute(FetchMembersOperation.java:112)
+	at org.eclipse.team.internal.ccvs.ui.operations.CVSOperation.run(CVSOperation.java:81)
+	at org.eclipse.team.internal.ccvs.ui.model.RemoteFolderElement.fetchDeferredChildren(RemoteFolderElement.java:72)
+	at org.eclipse.ui.progress.DeferredTreeContentManager$1.run(DeferredTreeContentManager.java:234)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Contains: : cvs [checkout aborted]: failed to open the modules file
+!SUBENTRY 1 org.eclipse.team.cvs.core 4 -10 2009-06-10 23:20:49.012
+!MESSAGE The server reported an error while performing the "cvs checkout" command.
+!SUBENTRY 2 org.eclipse.team.cvs.core 4 -14 2009-06-10 23:20:49.012
+!MESSAGE : cvs [checkout aborted]: failed to open the modules file

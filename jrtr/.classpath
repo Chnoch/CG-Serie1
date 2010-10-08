@@ -4,6 +4,5 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/j3d"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jogl"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Java3D"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
