@@ -1,3 +1,9 @@
+/*
+ * Author: Simon Baumann
+ * Matrikelno: 08-100-901
+ * Solution for 1st Exercise
+ */
+
 import jrtr.*;
 import javax.swing.*;
 import java.awt.event.MouseListener;
@@ -53,7 +59,7 @@ public class simple {
             rotX.rotX(angle);
             Matrix4f rotY = new Matrix4f();
             rotY.rotY(angle);
-//            t.mul(rotX);
+
             t.mul(rotY);
             shape.setTransformation(t);
             
@@ -64,11 +70,10 @@ public class simple {
             rotX2.rotX(angle);
             rotY2.rotY(angle);
             rotZ2.rotZ(angle);
-//            t2.mul(rotX2);
-//            t2.mul(rotY2);
+
             rotY2.mul(t2);
             rotY2.mul(rotX2);
-//            t2.mul(rotZ2);
+
             shape2.setTransformation(rotY2);
             
             Matrix4f t3 =  shape3.getTransformation();
@@ -78,12 +83,9 @@ public class simple {
             rotX3.rotX(angle);
             rotY3.rotY(angle);
             rotZ3.rotZ(angle);
-//            t3.mul(rotX3);
+
             rotY3.mul(t3);
-//            t3.mul(rotZ3);
             rotY3.mul(rotX3);
-//            rotX3.mul(t3);
-//            rotZ3.mul(t3);
             shape3.setTransformation(rotY3);
 
             // Trigger redrawing of the render window
@@ -203,6 +205,7 @@ public class simple {
         return new Shape(vertexData);
     }
 
+	//Doesn't do much useful...
     public static Shape makeBall(int resolution) {
         float c[], ball[];
         int indices[];
